@@ -36,6 +36,10 @@ function randomIntBetween(lower, upper) {
  * DOM elements are loaded and available. It is a good practice in Javascript,
  * and might prevent some funky errors.
  */
+
+
+
+
 window.addEventListener("load", function () {
   const playfield = document.getElementById("playfield");
   // grabs the trophy element
@@ -58,7 +62,9 @@ window.addEventListener("load", function () {
         randomIntBetween(0, playfield.clientWidth) + "px";
       score++;
       if (score >= scoreCap[trophiesIndex]) {
-        trophiesList.innerHTML += trophies[trophiesIndex];
+        const newSpan = document.createElement("span");
+        newSpan.innerHTML = trophies[trophiesIndex];
+        trophiesList.appendChild(newSpan);
         trophiesIndex++;
       }
   })});
